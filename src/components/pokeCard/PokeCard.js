@@ -1,15 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import { compare } from '../../helpers/helpers';
+import axios from 'axios';
+import React, { useState } from 'react';
 
 
 export default function PokeCard(props) {
 
 
-    // const { id, name, sprites, types} = sortedProps;    
+    const [data, setData] = useState([]);
+
+    axios.get(`${props.detail.url}`)
+    .then(res => {
+        setData(res.data);
+        // console.log(res)
+    })
+    .catch(err => {
+        console.log(err);
+    })
+
+    // console.log(data);
+
+
 
     return (
         <div>
-            {/* <img src={sprites.front_default} alt={name}></img> */}
+            <h1>{props.detail.name}</h1>
         </div>
     )
 }

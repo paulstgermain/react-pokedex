@@ -1,18 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import PokeCard from './PokeCard';
 
 export default function PokeCardContainer(props) {
 
-   console.log(props.data)
-
     return (
         <div>
-            {
-                  /* props.data.map(pokemon => {
-                    <PokeCard key={pokemon.name} details={pokemon} />
-                })     */
-            }
+
+        <PokeCard key={props.name} detail={props.data} />
+
         </div>
     )
 }
